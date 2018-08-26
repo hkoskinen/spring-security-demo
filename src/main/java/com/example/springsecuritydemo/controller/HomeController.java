@@ -1,7 +1,5 @@
 package com.example.springsecuritydemo.controller;
 
-import java.security.Principal;
-
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
