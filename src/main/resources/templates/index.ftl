@@ -3,6 +3,12 @@
 <@utils.page>
 	<h1>Home</h1>
 	<p>Hey, <i>${username}</i>!</p>
+	<p>You have these roles:</p>
+	<ul>
+		<#list roles as role>
+			<li>${role}</li>
+		</#list>
+	</ul>
 	
 	<!-- our logout button needs to be form, because we need to use POST method. -->
 	<form action="logout" method="post">

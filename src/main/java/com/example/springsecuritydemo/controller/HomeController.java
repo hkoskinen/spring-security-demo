@@ -2,6 +2,8 @@ package com.example.springsecuritydemo.controller;
 
 import java.security.Principal;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,8 +12,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
 
 	@GetMapping("/")
-	public String getHome(Principal principal, Model model) {
-		model.addAttribute("username", principal.getName());
+	public String getHome(Model model) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		model.addAttribute("username", auth.getName());
+		model.addAttribute("roles", auth.getAuthorities());
 		return "index";
 	}
 	
